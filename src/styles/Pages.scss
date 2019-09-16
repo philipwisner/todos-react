@@ -1,0 +1,13 @@
+.Container {
+  margin-top: navBarHeight;
+  padding-top: 90px;
+  z-index: 1000;
+  width: 90%;
+  align-self: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  transition: 0.2s;
+  color: white;
+  z-index: 1;
+}
