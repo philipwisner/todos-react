@@ -1,3 +1,16 @@
-.Container {
-  border: 1px solid red;
+@import "./Variables.scss";
+
+.Home {
+  border: 1px solid green;
+}
+
+.About {
+  .SecondaryHeader {
+    margin-bottom: 10px;
+    font-size: $h2;
+    color: $font-color;
+  }
+  .Info {
+    font-size: $p;
+  }
 }

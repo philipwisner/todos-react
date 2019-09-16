@@ -1,0 +1,35 @@
+@import "./Variables.scss";
+
+body {
+  margin: 0;
+  font-family: "Avenir", "Segoe UI", "Roboto", "Oxygen", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, div, p, a {
+  margin: 0;
+}
+
+#root {
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.App {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;  
+  height: calc(100vh - 40px);
+}
+
+.RouterOutlet {
+  overflow-y: auto;
+  height: calc(100vh - 80px);
+}
+
+
