@@ -1,9 +1,10 @@
 import React from "react";
+import "../styles/ToDoList.scss";
 
 const BottomButton = () => {
   return (
-    <div className="Header">
-      <button>Done</button>
+    <div className="BottomButton">
+      <button className="Button">Mark All Completed</button>
     </div>
   );
 };

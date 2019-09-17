@@ -1,9 +1,11 @@
 import React from "react";
+import { Todo } from "./";
+import "../styles/ToDoList.scss";
 
 const TodoList = () => {
   return (
-    <div className="Header">
-      TODO LIST
+    <div className="ToDoList">
+      <Todo />
     </div>
   );
 };

@@ -1,9 +1,15 @@
 import React from "react";
 
-const FilterBar = () => {
+//OnClick of filter item send this to parent and update list filter.
+//Need to display whether field is active
+
+const FilterBar = props => {
+  console.log(props);
   return (
-    <div className="Header">
-      FILTER BAR
+    <div className="FilterBar">
+      <p className="FilterItem SelectedItem">All</p>
+      <p className="FilterItem">Pending</p>
+      <p className="FilterItem">Completed</p>
     </div>
   );
 };
