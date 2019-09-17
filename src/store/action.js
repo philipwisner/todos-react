@@ -5,19 +5,43 @@ const Types = {
   DELETE_TODO: "DELETE_TODO",
   SET_FITLER: "SET_FILTER"
 };
-// actions
-const createItem = task => ({
-  type: Types.CREATE_ITEM,
-  payload: task
+
+const FilterTypes = {
+  SHOW_ALL: "SHOW_ALL",
+  SHOW_PENDING: "SHOW_PENDING",
+  SHOW_COMPLETED: "SHOW_COMPLETED"
+};
+
+const addTodo = todo => ({
+  type: Types.ADD_TODO,
+  payload: todo
 });
 
-const deleteItem = id => ({
-  type: Types.DELETE_ITEM,
-  payload: id
+const toggleTodo = index => ({
+  type: Types.TOGGLE_TODO,
+  payload: index
+});
+
+const editTodo = todo => ({
+  type: Types.EDIT_TODO,
+  payload: todo
+});
+
+const deleteTodo = index => ({
+  type: Types.DELETE_TODO,
+  payload: index
+});
+
+const setFilter = filter => ({
+  type: Types.SET_FITLER,
+  payload: filter
 });
 
 export default {
-  createItem,
-  deleteItem,
-  Types
+  Types,
+  addTodo,
+  toggleTodo,
+  editTodo,
+  deleteTodo,
+  setFilter
 };
