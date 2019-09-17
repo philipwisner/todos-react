@@ -1,6 +1,6 @@
 @import "./Variables.scss";
 
-body {
+* {
   margin: 0;
   font-family: "Avenir", "Segoe UI", "Roboto", "Oxygen", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -23,7 +23,7 @@ a {
 .App {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;  
+  padding: 20px;
   height: calc(100vh - 40px);
 }
 

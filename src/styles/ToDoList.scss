@@ -1,0 +1,73 @@
+@import "./Variables.scss";
+
+.NewTodo {
+  display: flex;
+
+  input {
+    border: 1px solid $border-color;
+    color: $font-color;
+    padding: 8px 10px;
+    border-radius: 3px;
+    font-size: $p;
+    flex: 1 1 auto;
+
+    &:focus {
+      border: 1px solid lighten($primary-color, 20);
+      outline: none;
+    }
+  }
+}
+
+.FilterBar {
+  margin: 10px 0 15px 0;
+  display: flex;
+
+  .FilterItem {
+    flex: 0 1 auto;
+    margin-right: 15px;
+    font-size: $small;
+    color: $pale;
+
+    &.SelectedItem {
+      color: $primary-color;
+      font-weight: $bolder;
+    }
+  }
+}
+
+.ToDoList {
+  border: 1px solid red;
+}
+
+.ToDoItem {
+  border: 1px solid green;
+}
+
+.BottomButton {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 55px;
+  background: $background-light;
+
+  .Button {
+    color: $primary-color;
+    font-size: $medium;
+    font-weight: $bolder;
+    text-align: center;
+    flex: 1 1 auto;
+    border: none;
+    background: none;
+
+    &:focus {
+      outline: none;
+      background: darken($background-light, 5)
+    }
+
+    &:hover {
+      background: darken($background-light, 5)
+    }
+  }
+}
