@@ -12,7 +12,10 @@ class Todo extends React.Component {
           checked={todo.completed}
           onChange={() => toggleTodo(todo)}
         />
-        <label htmlFor={todo.id} className="CheckBoxText">
+        <label
+          htmlFor={todo.id}
+          className={todo.completed ? 'CheckBoxText Completed' : 'CheckBoxText'}
+        >
           {todo.text}
         </label>
       </div>
