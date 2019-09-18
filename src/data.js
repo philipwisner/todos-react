@@ -3,34 +3,40 @@ const appData = {};
 appData.todos = [
   {
     id: 1,
-    content: "Grocery Shopping",
-    completed: true
+    text: 'Grocery Shopping',
+    completed: true,
   },
   {
     id: 2,
-    content: "Clean Room",
-    completed: false
+    text: 'Clean Room',
+    completed: false,
   },
   {
     id: 3,
-    content: "Study Spanish",
-    completed: false
+    text: 'Study Spanish',
+    completed: false,
   },
   {
     id: 4,
-    content: "Learn Git",
-    completed: false
+    text: 'Learn Git',
+    completed: false,
   },
   {
     id: 5,
-    content: "Learn React",
-    completed: false
+    text: 'Learn React',
+    completed: false,
   },
   {
     id: 6,
-    content: "Learn Redux",
-    completed: false
-  }
+    text: 'Learn Redux',
+    completed: false,
+  },
+];
+
+appData.statuses = [
+  { name: 'All', value: 'all' },
+  { name: 'Pending', value: 'pending' },
+  { name: 'Completed', value: 'completed' },
 ];
 
 module.exports = appData;
