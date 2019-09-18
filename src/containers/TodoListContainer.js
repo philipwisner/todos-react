@@ -12,8 +12,33 @@ class TodoListContainer extends React.Component {
       checkAll: true,
     };
   }
+
+  filterTodos() {
+    const { selectedFilter } = this.state;
+    if (selectedFilter === 'pending') {
+      this.setState({
+        todos: appData.todos.filter(todo => {
+          return !todo.completed;
+        }),
+      });
+    } else if (selectedFilter === 'completed') {
+      this.setState({
+        todos: appData.todos.filter(todo => {
+          return todo.completed;
+        }),
+      });
+    } else {
+      this.setState({
+        todos: appData.todos,
+      });
+    }
+  }
+
+  //CHILD FUNCTIONS
   toggleFilter = value => {
-    this.setState({ selectedFilter: value });
+    this.setState({ selectedFilter: value }, () => {
+      this.filterTodos();
+    });
   };
 
   addTodo = todo => {
@@ -23,14 +48,21 @@ class TodoListContainer extends React.Component {
 
   toggleTodo = selectedTodo => {
     const { todos } = this.state;
-    this.setState({
-      todos: todos.map(todo => {
-        todo.id == selectedTodo.id
-          ? (todo.completed = !todo.completed)
-          : (todo.completed = todo.completed);
-        return todo;
-      }),
-    });
+    this.setState(
+      {
+        todos: todos.map(todo => {
+          todo.id === selectedTodo.id
+            ? (todo.completed = !todo.completed)
+            : (todo.completed = todo.completed);
+          return todo;
+        }),
+      },
+      () => {
+        setTimeout(() => {
+          this.filterTodos();
+        }, 500);
+      },
+    );
   };
 
   toggleAllTodos = () => {
