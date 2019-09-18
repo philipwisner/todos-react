@@ -1,15 +1,14 @@
 @import "./Variables.scss";
 
-.Home {
-
-}
-
 .About {
+  padding: 0 20px;
+
   .SecondaryHeader {
     margin-bottom: 10px;
     font-size: $h2;
     color: $font-color;
   }
+
   .Info {
     font-size: $p;
   }
