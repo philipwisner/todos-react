@@ -1,17 +1,22 @@
-import React from "react";
-
-//OnClick of filter item send this to parent and update list filter.
-//Need to display whether field is active
+import React from 'react';
+import appData from '../data';
 
 const FilterBar = props => {
-  console.log(props);
-  return (
-    <div className="FilterBar">
-      <p className="FilterItem SelectedItem">All</p>
-      <p className="FilterItem">Pending</p>
-      <p className="FilterItem">Completed</p>
-    </div>
-  );
+  const { selectedFilter, toggleFilter } = props;
+
+  const filters = appData.statuses.map(status => {
+    return (
+      <p
+        key={status.value}
+        className={selectedFilter === status.value ? 'FilterItem SelectedItem' : 'FilterItem'}
+        onClick={() => toggleFilter(status.value)}
+      >
+        {status.name}
+      </p>
+    );
+  });
+
+  return <div className="FilterBar">{filters}</div>;
 };
 
 export default FilterBar;
