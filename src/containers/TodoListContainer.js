@@ -67,13 +67,20 @@ class TodoListContainer extends React.Component {
 
   toggleAllTodos = () => {
     const { todos, checkAll } = this.state;
-    this.setState({
-      todos: todos.map(todo => {
-        this.state.checkAll ? (todo.completed = true) : (todo.completed = false);
-        return todo;
-      }),
-      checkAll: !checkAll,
-    });
+    this.setState(
+      {
+        todos: todos.map(todo => {
+          this.state.checkAll ? (todo.completed = true) : (todo.completed = false);
+          return todo;
+        }),
+        checkAll: !checkAll,
+      },
+      () => {
+        setTimeout(() => {
+          this.filterTodos();
+        }, 500);
+      },
+    );
   };
 
   render() {
