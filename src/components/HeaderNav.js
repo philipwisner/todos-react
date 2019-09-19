@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/HeaderNav.scss';
-import InfoIcon from '../assets/images/info.svg';
-
+import { settings } from '../assets/images';
 
 const HeaderNav = () => {
   return (
@@ -12,7 +11,9 @@ const HeaderNav = () => {
           <Link to="/">Todos</Link>
         </div>
         <div className="NavChildInfo">
-          <Link to="/about"><img src={InfoIcon} alt="info"/></Link>
+          <Link to="/settings">
+            <img src={settings} alt="info" />
+          </Link>
         </div>
       </h1>
     </div>

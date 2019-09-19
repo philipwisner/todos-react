@@ -1,10 +1,10 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Provider } from "react-redux";
-import { HeaderNav } from "./components";
-import { Home, About } from "./pages";
-import configureStore from "./store/store";
-import "./styles/App.scss";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { HeaderNav } from './components';
+import { Home, Settings } from './pages';
+import configureStore from './store/store';
+import './styles/App.scss';
 
 export const store = configureStore();
 
@@ -19,7 +19,7 @@ function App() {
           <div className="RouterOutlet">
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route path="/about" component={About} />
+              <Route path="/settings" component={Settings} />
             </Switch>
           </div>
         </Router>
