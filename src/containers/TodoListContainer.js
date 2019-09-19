@@ -8,28 +8,33 @@ class TodoListContainer extends React.Component {
     super(props);
     this.state = {
       todos: appData.todos,
+      filteredTodos: [],
       selectedFilter: 'all',
       checkAll: true,
     };
   }
 
+  componentDidMount() {
+    this.setState({ filteredTodos: this.state.todos });
+  }
+
   filterTodos() {
-    const { selectedFilter } = this.state;
+    const { selectedFilter, todos } = this.state;
     if (selectedFilter === 'pending') {
       this.setState({
-        todos: appData.todos.filter(todo => {
+        filteredTodos: todos.filter(todo => {
           return !todo.completed;
         }),
       });
     } else if (selectedFilter === 'completed') {
       this.setState({
-        todos: appData.todos.filter(todo => {
+        filteredTodos: todos.filter(todo => {
           return todo.completed;
         }),
       });
     } else {
       this.setState({
-        todos: appData.todos,
+        filteredTodos: todos,
       });
     }
   }
@@ -89,7 +94,7 @@ class TodoListContainer extends React.Component {
         <NewTodo addTodo={this.addTodo} />
         <FilterBar selectedFilter={this.state.selectedFilter} toggleFilter={this.toggleFilter} />
         <TodoList
-          todos={this.state.todos}
+          todos={this.state.filteredTodos}
           selectedFilter={this.state.selectedFilter}
           toggleTodo={this.toggleTodo}
         />
