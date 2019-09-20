@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../styles/Settings.scss';
 
 const ColorPicker = ({ colors, selectedColor, setThemeColor }) => {
@@ -16,3 +17,9 @@ const ColorPicker = ({ colors, selectedColor, setThemeColor }) => {
 };
 
 export default ColorPicker;
+
+ColorPicker.propTypes = {
+  colors: PropTypes.array,
+  selectedColor: PropTypes.string,
+  setThemeColor: PropTypes.func,
+};

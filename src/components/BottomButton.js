@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../styles/ToDoList.scss';
 
 const BottomButton = ({ toggleAllTodos, checkAll }) => {
@@ -13,3 +14,8 @@ const BottomButton = ({ toggleAllTodos, checkAll }) => {
 };
 
 export default BottomButton;
+
+BottomButton.propTypes = {
+  toggleAllTodos: PropTypes.func,
+  checkAll: PropTypes.bool,
+};

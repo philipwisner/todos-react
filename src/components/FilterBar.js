@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import appData from '../data';
 
 const FilterBar = ({ selectedFilter, toggleFilter }) => {
@@ -18,3 +19,8 @@ const FilterBar = ({ selectedFilter, toggleFilter }) => {
 };
 
 export default FilterBar;
+
+FilterBar.propTypes = {
+  selectedFilter: PropTypes.string,
+  toggleFilter: PropTypes.func,
+};

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../styles/ToDoList.scss';
 
 const Todo = ({ todo, toggleTodo }) => {
@@ -21,3 +22,8 @@ const Todo = ({ todo, toggleTodo }) => {
 };
 
 export default Todo;
+
+Todo.propTypes = {
+  todo: PropTypes.object,
+  toggleTodo: PropTypes.func,
+};
