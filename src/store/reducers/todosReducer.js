@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { addTodo, toggleTodo, setFilter, FilterTypes } from '../actions';
 import _ from 'lodash';
 import appData from '../../data';
-const { SHOW_ALL, SHOW_PENDING, SHOW_COMPLETED } = FilterTypes;
+const { SHOW_ALL } = FilterTypes;
 
 function visibilityFilter(state = SHOW_ALL, action) {
   switch (action.type) {

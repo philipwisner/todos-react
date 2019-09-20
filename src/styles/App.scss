@@ -21,6 +21,7 @@ a {
 
 #root {
   height: 100vh;
+  background: $black;
 }
 
 a {
@@ -29,13 +30,14 @@ a {
 }
 
 .app {
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
   padding-top: 20px;
-  height: calc(100vh - 40px);
+  height: calc(100vh - 20px);
+  background: white;
 }
 
 .router-outlet {
   overflow-y: auto;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 75px);
 }

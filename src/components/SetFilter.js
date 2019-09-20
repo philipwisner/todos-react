@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Settings.scss';
-import { stat } from 'fs';
 
 const SetFilter = ({ statuses, selectedFilter, setDefaultFilter }) => {
   const filterOptions = statuses.map((status, index) => {
@@ -11,7 +10,7 @@ const SetFilter = ({ statuses, selectedFilter, setDefaultFilter }) => {
           <input
             type="radio"
             name="default-fitler"
-            checked={selectedFilter == status.value}
+            checked={selectedFilter === status.value}
             id={status.value}
             value={status.value}
             onChange={() => setDefaultFilter(status.value)}
