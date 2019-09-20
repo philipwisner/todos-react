@@ -1,9 +1,7 @@
 import React from 'react';
 import appData from '../data';
 
-const FilterBar = props => {
-  const { selectedFilter, toggleFilter } = props;
-
+const FilterBar = ({ selectedFilter, toggleFilter }) => {
   const filters = appData.statuses.map(status => {
     return (
       <p

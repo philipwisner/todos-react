@@ -1,12 +1,12 @@
 import React from 'react';
 import '../styles/ToDoList.scss';
 
-const BottomButton = props => {
+const BottomButton = ({ toggleAllTodos, checkAll }) => {
   return (
     <div className="bottom-button">
-      <button className="button" onClick={props.toggleAllTodos}>
+      <button className="button" onClick={toggleAllTodos}>
         Mark All
-        <span> {props.checkAll ? 'Completed' : 'Pending'}</span>
+        <span> {checkAll ? 'Completed' : 'Pending'}</span>
       </button>
     </div>
   );

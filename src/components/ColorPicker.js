@@ -1,9 +1,7 @@
 import React from 'react';
 import '../styles/Settings.scss';
 
-const ColorPicker = props => {
-  const { colors, selectedColor, setThemeColor } = props;
-
+const ColorPicker = ({ colors, selectedColor, setThemeColor }) => {
   const colorTiles = colors.map(color => {
     return (
       <div
