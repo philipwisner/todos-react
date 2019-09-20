@@ -1,6 +1,6 @@
 @import "./Variables.scss";
 
-.NewTodo {
+.new-todo {
   display: flex;
   padding: 0 20px;
 
@@ -19,12 +19,12 @@
   }
 }
 
-.FilterBar {
+.filter-bar {
   margin: 10px 0 15px 0;
   display: flex;
   padding: 0 20px;
 
-  .FilterItem {
+  .filter-item {
     flex: 0 1 auto;
     margin-right: 15px;
     font-size: $small;
@@ -35,18 +35,18 @@
       color: darken($pale, 15);
     }
 
-    &.SelectedItem {
+    &.selected-item {
       color: $primary-color;
       font-weight: $bolder;
     }
   }
 }
 
-.ToDoList {
+.todo-list {
   padding: 0 20px;
 }
 
-.ToDoItem {
+.todo-item {
   margin-bottom: 15px;
   display: flex;
   align-items: center;
@@ -57,7 +57,7 @@
 
   }
 
-  .CheckBoxLabel {
+  .checkbox-label {
     display: block;
     position: relative;
     margin: auto;
@@ -75,7 +75,7 @@
 
     }
 
-    .CheckBoxCustom {
+    .checkbox-custom {
       flex: 0 1 auto;
       position: absolute;
       top: 0px;
@@ -94,14 +94,14 @@
     }
   }
 
-  .CheckBoxText {
+  .checkbox-text {
     margin-left: 15px;
     font-size: $small;
     flex: 1 1 auto;
     color: $font-color;
     cursor: pointer;
 
-    &.Completed {
+    &.completed {
       color: $primary-color;
       font-style: italic;
       text-decoration: line-through;
@@ -110,58 +110,7 @@
   }
 }
 
-
-
-// .CheckBoxLabel input:checked~.CheckBoxCustom {
-//   background-color: transparent;
-//   border-radius: 1px;
-//   -webkit-transform: rotate(0deg) scale(1);
-//   -ms-transform: rotate(0deg) scale(1);
-//   transform: rotate(0deg) scale(1);
-//   opacity: 1;
-//   border: 1px solid $primary-color;
-// }
-
-
-// .CheckBoxLabel .CheckBoxCustom::after {
-//   position: absolute;
-//   content: "";
-//   left: 12px;
-//   top: 12px;
-//   height: 0px;
-//   width: 0px;
-//   border-radius: 1px;
-//   border: solid $primary-color;
-//   border-width: 0 3px 3px 0;
-//   -webkit-transform: rotate(0deg) scale(0);
-//   -ms-transform: rotate(0deg) scale(0);
-//   transform: rotate(0deg) scale(0);
-//   opacity: 1;
-//   transition: all 0.3s ease-out;
-//   -webkit-transition: all 0.3s ease-out;
-//   -moz-transition: all 0.3s ease-out;
-//   -ms-transition: all 0.3s ease-out;
-//   -o-transition: all 0.3s ease-out;
-// }
-
-
-// .cCheckBoxLabel input:checked~.CheckBoxCustom::after {
-//   -webkit-transform: rotate(45deg) scale(1);
-//   -ms-transform: rotate(45deg) scale(1);
-//   transform: rotate(45deg) scale(1);
-//   opacity: 1;
-//   left: 8px;
-//   top: 3px;
-//   width: 6px;
-//   height: 12px;
-//   border: solid $primary-color;
-//   border-width: 0 2px 2px 0;
-//   background-color: transparent;
-//   border-radius: 0;
-// }
-
-
-.BottomButton {
+.bottom-button {
   position: fixed;
   bottom: 0;
   display: flex;
@@ -170,7 +119,7 @@
   background: $background-light;
   max-width: 1000px;
 
-  .Button {
+  .button {
     color: $primary-color;
     font-size: $medium;
     font-weight: $bolder;

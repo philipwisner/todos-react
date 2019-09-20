@@ -1,0 +1,23 @@
+@import "./Variables.scss";
+
+.color-tile {
+  height: 47.5px;
+  border-radius: 3px;
+  flex: 1 1 auto;
+  margin: 8px;
+  max-width: calc(20% - 16px);
+  min-width: calc(20% - 16px);
+  cursor: pointer;
+
+  &.selected {
+    background-image: url('../assets/images/check.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.color-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -8px;
+}

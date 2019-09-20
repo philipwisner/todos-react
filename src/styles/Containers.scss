@@ -1,15 +1,25 @@
 @import "./Variables.scss";
 
-.About {
+.settings {
   padding: 0 20px;
 
-  .SecondaryHeader {
+  .secondary-header {
     margin-bottom: 10px;
     font-size: $h2;
     color: $font-color;
   }
 
-  .Info {
+  .info {
     font-size: $p;
+  }
+
+  .subheader {
+    margin-bottom: 10px;
+  }
+
+  .saved {
+    color: $green;
+    margin-top: 10px;
+    font-size: $small;
   }
 }

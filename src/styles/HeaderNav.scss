@@ -1,13 +1,13 @@
 @import "./Variables.scss";
 
-.NavHeader {
+.nav-header {
   margin: 0;
   display: flex;
   font-size: $h1;
   padding: 0 20px;
 }
 
-.NavChildTitle {
+.nav-child-title {
   flex: 1 1 auto;
 
   a {
@@ -15,6 +15,6 @@
   }
 }
 
-.NavChildInfo {
+.nav-child-icon {
   flex: 0 1 auto;
 }

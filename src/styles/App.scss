@@ -28,14 +28,14 @@ a {
   cursor: pointer;
 }
 
-.App {
+.app {
   max-width: 1000px;
   margin: 0 auto;
   padding-top: 20px;
   height: calc(100vh - 40px);
 }
 
-.RouterOutlet {
+.router-outlet {
   overflow-y: auto;
   height: calc(100vh - 80px);
 }
