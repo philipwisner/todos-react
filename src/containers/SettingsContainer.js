@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../styles/Containers.scss';
 import appData from '../data';
 import { ColorPicker } from '../components';
 
-class SettingsContainer extends React.Component {
+class SettingsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {

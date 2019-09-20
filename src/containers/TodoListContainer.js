@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { NewTodo, FilterBar, TodoList, BottomButton } from '../components';
 import '../styles/Containers.scss';
 import appData from '../data';
 
-class TodoListContainer extends React.Component {
+class TodoListContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
