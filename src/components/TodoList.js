@@ -8,7 +8,7 @@ const TodoList = props => {
     return <Todo todo={todo} key={todo.id} toggleTodo={props.toggleTodo} />;
   });
   return (
-    <div className="ToDoList">
+    <div className="todo-list">
       {todoList.length >= 1 ? todoList : `No ${props.selectedFilter} todos`}
     </div>
   );

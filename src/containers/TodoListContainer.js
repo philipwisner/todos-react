@@ -90,7 +90,7 @@ class TodoListContainer extends React.Component {
 
   render() {
     return (
-      <div className="Home">
+      <div className="home">
         <NewTodo addTodo={this.addTodo} />
         <FilterBar selectedFilter={this.state.selectedFilter} toggleFilter={this.toggleFilter} />
         <TodoList

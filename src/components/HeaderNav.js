@@ -5,12 +5,12 @@ import { settings } from '../assets/images';
 
 const HeaderNav = () => {
   return (
-    <div className="Header">
-      <h1 className="NavHeader">
-        <div className="NavChildTitle">
+    <div className="header">
+      <h1 className="nav-header">
+        <div className="nav-child-title">
           <Link to="/">Todos</Link>
         </div>
-        <div className="NavChildInfo">
+        <div className="nav-child-icon">
           <Link to="/settings">
             <img src={settings} alt="info" />
           </Link>

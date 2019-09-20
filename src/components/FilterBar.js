@@ -8,7 +8,7 @@ const FilterBar = props => {
     return (
       <p
         key={status.value}
-        className={selectedFilter === status.value ? 'FilterItem SelectedItem' : 'FilterItem'}
+        className={selectedFilter === status.value ? 'filter-item selected-item' : 'filter-item'}
         onClick={() => toggleFilter(status.value)}
       >
         {status.name}
@@ -16,7 +16,7 @@ const FilterBar = props => {
     );
   });
 
-  return <div className="FilterBar">{filters}</div>;
+  return <div className="filter-bar">{filters}</div>;
 };
 
 export default FilterBar;

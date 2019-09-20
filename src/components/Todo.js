@@ -5,7 +5,7 @@ class Todo extends React.Component {
   render() {
     const { todo, toggleTodo } = this.props;
     return (
-      <div className="ToDoItem">
+      <div className="todo-item">
         <input
           type="checkbox"
           id={todo.id}
@@ -14,7 +14,7 @@ class Todo extends React.Component {
         />
         <label
           htmlFor={todo.id}
-          className={todo.completed ? 'CheckBoxText Completed' : 'CheckBoxText'}
+          className={todo.completed ? 'checkbox-text completed' : 'checkbox-text'}
         >
           {todo.text}
         </label>
