@@ -1,8 +1,8 @@
-import React from "react";
-import TodoListContainer from "../containers/TodoListContainer";
+import React from 'react';
+import TodoListContainer from '../containers/TodoListContainer';
 
 const Home = () => {
-  return <TodoListContainer></TodoListContainer>;
+  return <TodoListContainer />;
 };
 
 export default Home;
