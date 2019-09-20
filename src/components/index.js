@@ -5,3 +5,4 @@ export { default as NewTodo } from './NewTodo';
 export { default as Todo } from './Todo';
 export { default as TodoList } from './TodoList';
 export { default as ColorPicker } from './ColorPicker';
+export { default as SetFilter } from './SetFilter';

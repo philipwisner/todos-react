@@ -1,20 +1,30 @@
 import React, { Component } from 'react';
 import '../styles/Containers.scss';
 import appData from '../data';
-import { ColorPicker } from '../components';
+import { ColorPicker, SetFilter } from '../components';
 
 class SettingsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       colors: appData.colors,
+      statuses: appData.statuses,
       selectedColor: '#921CE8',
       saved: false,
+      selectedFilter: 'all',
     };
   }
 
   setThemeColor = color => {
     this.setState({ selectedColor: color, saved: true }, () => {
+      setTimeout(() => {
+        this.setState({ saved: false });
+      }, 1000);
+    });
+  };
+
+  setDefaultFilter = filter => {
+    this.setState({ selectedFilter: filter, saved: true }, () => {
       setTimeout(() => {
         this.setState({ saved: false });
       }, 1000);
@@ -30,6 +40,12 @@ class SettingsContainer extends Component {
           colors={this.state.colors}
           selectedColor={this.state.selectedColor}
           setThemeColor={this.setThemeColor}
+        />
+        <p className="subheader">Set Default Filter</p>
+        <SetFilter
+          statuses={this.state.statuses}
+          selectedFilter={this.state.selectedFilter}
+          setDefaultFilter={this.setDefaultFilter}
         />
         {this.state.saved ? <p className="saved">Saved</p> : null}
       </div>
