@@ -1,108 +1,76 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NewTodo, FilterBar, TodoList, BottomButton } from '../components';
 import '../styles/Containers.scss';
 import appData from '../data';
 
-//REFACTOR TO FUNCTIONAL COMPONENTS
-class TodoListContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos: appData.todos,
-      filteredTodos: [],
-      selectedFilter: 'all',
-      checkAll: true,
-    };
-  }
+const TodoListContainer = () => {
+  const [todos, setTodos] = useState(appData.todos);
+  const [filteredTodos, setFilteredTodos] = useState([]);
+  const [selectedFilter, setSelectedFilter] = useState('all');
+  const [checkAll, setCheckAll] = useState(true);
 
-  componentDidMount() {
-    this.setState({ filteredTodos: this.state.todos });
-  }
+  useEffect(() => handleFilterTodos(), [selectedFilter]);
 
-  filterTodos() {
-    const { selectedFilter, todos } = this.state;
+  function handleFilterTodos() {
     if (selectedFilter === 'pending') {
-      this.setState({
-        filteredTodos: todos.filter(todo => {
+      setFilteredTodos(
+        todos.filter(todo => {
           return !todo.completed;
         }),
-      });
+      );
     } else if (selectedFilter === 'completed') {
-      this.setState({
-        filteredTodos: todos.filter(todo => {
+      setFilteredTodos(
+        todos.filter(todo => {
           return todo.completed;
         }),
-      });
+      );
     } else {
-      this.setState({
-        filteredTodos: todos,
-      });
+      setFilteredTodos(todos);
     }
   }
 
   //CHILD FUNCTIONS
-  toggleFilter = value => {
-    this.setState({ selectedFilter: value }, () => {
-      this.filterTodos();
-    });
+  const handleToggleFilter = value => {
+    setSelectedFilter(value);
   };
 
-  addTodo = todo => {
-    const { todos } = this.state;
-    this.setState({ todos: [...todos, todo] });
+  const handleAddTodo = todo => {
+    setTodos([...todos, todo]);
   };
 
-  toggleTodo = selectedTodo => {
-    const { todos } = this.state;
-    this.setState(
-      {
-        todos: todos.map(todo => {
-          todo.id === selectedTodo.id
-            ? (todo.completed = !todo.completed)
-            : (todo.completed = todo.completed);
-          return todo;
-        }),
-      },
-      () => {
-        setTimeout(() => {
-          this.filterTodos();
-        }, 500);
-      },
+  const handleToggleTodo = selectedTodo => {
+    setTodos(
+      todos.map(todo => {
+        todo.id === selectedTodo.id
+          ? (todo.completed = !todo.completed)
+          : (todo.completed = todo.completed);
+        return todo;
+      }),
     );
   };
 
-  toggleAllTodos = () => {
-    const { todos, checkAll } = this.state;
-    this.setState(
-      {
-        todos: todos.map(todo => {
-          this.state.checkAll ? (todo.completed = true) : (todo.completed = false);
-          return todo;
-        }),
-        checkAll: !checkAll,
-      },
-      () => {
-        setTimeout(() => {
-          this.filterTodos();
-        }, 500);
-      },
+  const handleToggleAllTodos = () => {
+    setTodos(
+      todos.map(todo => {
+        checkAll ? (todo.completed = true) : (todo.completed = false);
+        return todo;
+      }),
     );
+    setCheckAll(!checkAll);
   };
 
-  render() {
-    return (
-      <div className="home">
-        <NewTodo addTodo={this.addTodo} />
-        <FilterBar selectedFilter={this.state.selectedFilter} toggleFilter={this.toggleFilter} />
-        <TodoList
-          todos={this.state.filteredTodos}
-          selectedFilter={this.state.selectedFilter}
-          toggleTodo={this.toggleTodo}
-        />
-        <BottomButton checkAll={this.state.checkAll} toggleAllTodos={this.toggleAllTodos} />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="home">
+      <NewTodo addTodo={handleAddTodo} />
+      <FilterBar selectedFilter={selectedFilter} toggleFilter={handleToggleFilter} />
+      <TodoList
+        todos={filteredTodos}
+        selectedFilter={selectedFilter}
+        toggleTodo={handleToggleTodo}
+      />
+      <BottomButton checkAll={checkAll} toggleAllTodos={handleToggleAllTodos} />
+    </div>
+  );
+};
 
 export default TodoListContainer;

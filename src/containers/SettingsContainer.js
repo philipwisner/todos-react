@@ -12,10 +12,12 @@ const SettingsContainer = () => {
   const [saved, setSaved] = useState(false);
 
   useEffect(() => console.log('updated'), [selectedColor, selectedColor]);
-  //Need to set saved to false after 500ms
 
   const handleSetSaved = () => {
     setSaved(true);
+    setTimeout(() => {
+      setSaved(false);
+    }, 1000);
   };
 
   const handleSelectedColor = color => {
