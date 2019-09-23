@@ -1,56 +1,51 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Containers.scss';
 import appData from '../data';
 import { ColorPicker, SetFilter } from '../components';
 
-class SettingsContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      colors: appData.colors,
-      statuses: appData.statuses,
-      selectedColor: '#921CE8',
-      saved: false,
-      selectedFilter: 'all',
-    };
-  }
+const SettingsContainer = () => {
+  const colors = appData.colors;
+  const statuses = appData.statuses;
 
-  setThemeColor = color => {
-    this.setState({ selectedColor: color, saved: true }, () => {
-      setTimeout(() => {
-        this.setState({ saved: false });
-      }, 1000);
-    });
+  const [selectedColor, setSelectedColor] = useState('#921CE8');
+  const [selectedFilter, setSelectedFilter] = useState('all');
+  const [saved, setSaved] = useState(false);
+
+  useEffect(() => console.log('updated'), [selectedColor, selectedColor]);
+  //Need to set saved to false after 500ms
+
+  const handleSetSaved = () => {
+    setSaved(true);
   };
 
-  setDefaultFilter = filter => {
-    this.setState({ selectedFilter: filter, saved: true }, () => {
-      setTimeout(() => {
-        this.setState({ saved: false });
-      }, 1000);
-    });
+  const handleSelectedColor = color => {
+    setSelectedColor(color);
+    handleSetSaved();
   };
 
-  render() {
-    return (
-      <div className="settings">
-        <h2 className="secondary-header">Settings</h2>
-        <p className="subheader">Color Theme</p>
-        <ColorPicker
-          colors={this.state.colors}
-          selectedColor={this.state.selectedColor}
-          setThemeColor={this.setThemeColor}
-        />
-        <p className="subheader">Set Default Filter</p>
-        <SetFilter
-          statuses={this.state.statuses}
-          selectedFilter={this.state.selectedFilter}
-          setDefaultFilter={this.setDefaultFilter}
-        />
-        {this.state.saved ? <p className="saved">Saved</p> : null}
-      </div>
-    );
-  }
-}
+  const handleSelectedFilter = filter => {
+    setSelectedFilter(filter);
+    handleSetSaved();
+  };
+
+  return (
+    <div className="settings">
+      <h2 className="secondary-header">Settings</h2>
+      <p className="subheader">Color Theme</p>
+      <ColorPicker
+        colors={colors}
+        selectedColor={selectedColor}
+        setThemeColor={handleSelectedColor}
+      />
+      <p className="subheader">Set Default Filter</p>
+      <SetFilter
+        statuses={statuses}
+        selectedFilter={selectedFilter}
+        setDefaultFilter={handleSelectedFilter}
+      />
+      {saved ? <p className="saved">Saved</p> : null}
+    </div>
+  );
+};
 
 export default SettingsContainer;
