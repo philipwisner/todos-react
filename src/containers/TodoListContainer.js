@@ -4,6 +4,8 @@ import '../styles/Containers.scss';
 import appData from '../data';
 
 const TodoListContainer = () => {
+  const themeColor = appData.selectedColor;
+
   const [todos, setTodos] = useState(appData.todos);
   const [filteredTodos, setFilteredTodos] = useState([]);
   const [selectedFilter, setSelectedFilter] = useState('all');
@@ -62,13 +64,22 @@ const TodoListContainer = () => {
   return (
     <div className="home">
       <NewTodo addTodo={handleAddTodo} />
-      <FilterBar selectedFilter={selectedFilter} toggleFilter={handleToggleFilter} />
+      <FilterBar
+        selectedFilter={selectedFilter}
+        toggleFilter={handleToggleFilter}
+        themeColor={themeColor}
+      />
       <TodoList
         todos={filteredTodos}
         selectedFilter={selectedFilter}
         toggleTodo={handleToggleTodo}
+        themeColor={themeColor}
       />
-      <BottomButton checkAll={checkAll} toggleAllTodos={handleToggleAllTodos} />
+      <BottomButton
+        checkAll={checkAll}
+        themeColor={themeColor}
+        toggleAllTodos={handleToggleAllTodos}
+      />
     </div>
   );
 };

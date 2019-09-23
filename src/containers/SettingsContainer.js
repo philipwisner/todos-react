@@ -6,12 +6,11 @@ import { ColorPicker, SetFilter } from '../components';
 const SettingsContainer = () => {
   const colors = appData.colors;
   const statuses = appData.statuses;
-
-  const [selectedColor, setSelectedColor] = useState('#921CE8');
+  const [selectedColor, setSelectedColor] = useState(appData.selectedColor);
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [saved, setSaved] = useState(false);
 
-  useEffect(() => console.log('updated'), [selectedColor, selectedColor]);
+  // useEffect(() => console.log('updated'), [selectedColor, selectedColor]);
 
   const handleSetSaved = () => {
     setSaved(true);
@@ -22,6 +21,7 @@ const SettingsContainer = () => {
 
   const handleSelectedColor = color => {
     setSelectedColor(color);
+    //This needs to be known by app
     handleSetSaved();
   };
 

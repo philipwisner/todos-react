@@ -4,9 +4,9 @@ import { Todo } from './';
 import '../styles/ToDoList.scss';
 
 //This needs props of todos so that it can generate todo list based off filter status
-const TodoList = ({ todos, toggleTodo, selectedFilter }) => {
+const TodoList = ({ todos, toggleTodo, selectedFilter, themeColor }) => {
   const todoList = todos.map(todo => {
-    return <Todo todo={todo} key={todo.id} toggleTodo={toggleTodo} />;
+    return <Todo todo={todo} key={todo.id} toggleTodo={toggleTodo} themeColor={themeColor} />;
   });
   return (
     <div className="todo-list">
