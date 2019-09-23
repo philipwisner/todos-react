@@ -1,11 +1,14 @@
-import { createStore, applyMiddleware } from 'redux';
-
-// Logger with default options
+import { createStore, applyMiddleware, compose } from 'redux';
 import logger from 'redux-logger';
 
-import reducer from './reducers/todosReducer';
+import rootReducer from './reducers';
 
-export default function configureStore(initialState) {
-  const store = createStore(reducer, initialState, applyMiddleware(logger));
+const configureStore = () => {
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+  const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger)));
+
   return store;
-}
+};
+
+export default configureStore;
