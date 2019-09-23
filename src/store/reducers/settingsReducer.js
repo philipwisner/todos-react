@@ -1,12 +1,11 @@
 import { combineReducers } from 'redux';
 import { updateColorTheme } from '../actions';
-import _ from 'lodash';
 import appData from '../../data';
 
-function setColorTheme(state, action) {
+function setColorTheme(state = appData.selectedColor, action) {
   switch (action.type) {
     case updateColorTheme:
-      return action.theme;
+      return state;
     default:
       return state;
   }

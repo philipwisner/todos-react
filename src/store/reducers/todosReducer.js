@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { addTodo, toggleTodo, setFilter, FilterTypes } from '../actions';
-import _ from 'lodash';
+// import _ from 'lodash';
 import appData from '../../data';
 const { SHOW_ALL } = FilterTypes;
 
@@ -13,7 +13,7 @@ function visibilityFilter(state = SHOW_ALL, action) {
   }
 }
 
-function todos(state = appData.todos, action) {
+function transformTodos(state = appData.todos, action) {
   switch (action.type) {
     case addTodo:
       return [
@@ -37,9 +37,9 @@ function todos(state = appData.todos, action) {
   }
 }
 
-const todoApp = combineReducers({
+const todos = combineReducers({
   visibilityFilter,
-  todos,
+  transformTodos,
 });
 
-export default todoApp;
+export default todos;
