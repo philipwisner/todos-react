@@ -3,6 +3,7 @@ import { NewTodo, FilterBar, TodoList, BottomButton } from '../components';
 import '../styles/Containers.scss';
 import appData from '../data';
 
+//REFACTOR TO FUNCTIONAL COMPONENTS
 class TodoListContainer extends Component {
   constructor(props) {
     super(props);
