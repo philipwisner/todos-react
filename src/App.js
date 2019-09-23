@@ -4,17 +4,19 @@ import { Provider } from 'react-redux';
 import { HeaderNav } from './components';
 import { Home, Settings } from './pages';
 import configureStore from './store/store';
+import appData from './data';
 import './styles/App.scss';
 
 export const store = configureStore();
+const isDarkMode = appData.selectedColor === '#CED6E0';
 
 function App() {
   return (
     <Provider store={store}>
-      <div className="app">
+      <div className={isDarkMode ? 'app dark' : 'app'}>
         <Router>
           <div className="header-nav">
-            <HeaderNav />
+            <HeaderNav themeColor={appData.selectedColor} />
           </div>
           <div className="router-outlet">
             <Switch>

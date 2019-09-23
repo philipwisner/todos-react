@@ -35,6 +35,30 @@ a {
   padding-top: 20px;
   height: calc(100vh - 20px);
   background: white;
+
+  &.dark {
+    background: $black;
+
+    h2 {
+      color: white;
+    }
+
+    p {
+      color: white;
+    }
+
+    .filter-option {
+      color: white;
+    }
+
+    .todo-item label {
+      color: white;
+    }
+
+    .bottom-button {
+      background: rgb(100, 108, 126);
+    }
+  }
 }
 
 .router-outlet {
