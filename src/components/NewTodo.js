@@ -1,12 +1,12 @@
 import React from 'react';
 import '../styles/ToDoList.scss';
+import { clear } from '../assets/images';
 
-//When a user hits enter it should send action to parent to add new todo
-
-const NewTodo = () => {
+const NewTodo = ({ newTodoValue, addTodo, onChange, clearInput }) => {
   return (
     <div className="new-todo">
-      <input type="text" />
+      <input type="text" onChange={onChange} value={newTodoValue} onKeyPress={addTodo.bind(this)} />
+      <img onClick={clearInput} className="clear-button" src={clear} alt="" />
     </div>
   );
 };
