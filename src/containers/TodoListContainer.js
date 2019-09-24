@@ -41,9 +41,7 @@ const TodoListContainer = () => {
   };
 
   const clearInput = () => {
-    console.log('clear input ran');
     setNewTodoValue('');
-    console.log('value is', newTodoValue);
   };
 
   const enterPressed = event => {

@@ -6,7 +6,9 @@ const NewTodo = ({ newTodoValue, addTodo, onChange, clearInput }) => {
   return (
     <div className="new-todo">
       <input type="text" onChange={onChange} value={newTodoValue} onKeyPress={addTodo.bind(this)} />
-      <img onClick={clearInput} className="clear-button" src={clear} alt="" />
+      {newTodoValue ? (
+        <img onClick={clearInput} className="clear-button" src={clear} alt="" />
+      ) : null}
     </div>
   );
 };
