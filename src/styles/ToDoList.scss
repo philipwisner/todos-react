@@ -2,7 +2,8 @@
 
 .new-todo {
   display: flex;
-  padding: 0 5%;
+  margin: 0 5%;
+  position: relative;
 
   input {
     border: 1px solid $border-color;
@@ -10,11 +11,26 @@
     padding: 8px 10px;
     border-radius: 3px;
     font-size: $p;
-    flex: 1 1 auto;
+    flex: 1 0 auto;
     background: none;
 
     &:focus {
-      border: 1px solid lighten($primary-color, 20);
+      border: 1px solid darken($border-color, 20);
+      outline: none;
+    }
+  }
+
+  .clear-button {
+    display: block;
+    background: none;
+    border: none;
+    position: absolute;
+    right: 10px;
+    top: 13px;
+    width: 15px;
+    cursor: pointer;
+
+    &:focus {
       outline: none;
     }
   }
