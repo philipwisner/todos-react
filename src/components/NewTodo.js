@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/ToDoList.scss';
 import { clear } from '../assets/images';
-//Test
+
 const NewTodo = ({ newTodoValue, addTodo, onChange, clearInput }) => {
   return (
     <div className="new-todo">
