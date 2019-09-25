@@ -1,10 +1,44 @@
 import { combineReducers } from 'redux';
 import { addTodo, toggleTodo, setFilter, FilterTypes } from '../actions';
 // import _ from 'lodash';
-import appData from '../../data';
-const { SHOW_ALL } = FilterTypes;
 
-function visibilityFilter(state = SHOW_ALL, action) {
+const initialState = {
+  visibilityFilter: 'SHOW_ALL',
+  transformTodos: [
+    {
+      id: 1,
+      text: 'Grocery Shopping',
+      completed: true,
+    },
+    {
+      id: 2,
+      text: 'Clean Room',
+      completed: false,
+    },
+    {
+      id: 3,
+      text: 'Study Spanish',
+      completed: false,
+    },
+    {
+      id: 4,
+      text: 'Learn Git',
+      completed: false,
+    },
+    {
+      id: 5,
+      text: 'Learn React',
+      completed: false,
+    },
+    {
+      id: 6,
+      text: 'Learn Redux',
+      completed: false,
+    },
+  ],
+};
+
+function visibilityFilter(state = initialState, action) {
   switch (action.type) {
     case setFilter:
       return action.filter;
@@ -13,7 +47,7 @@ function visibilityFilter(state = SHOW_ALL, action) {
   }
 }
 
-function transformTodos(state = appData.todos, action) {
+function transformTodos(state = initialState, action) {
   switch (action.type) {
     case addTodo:
       return [

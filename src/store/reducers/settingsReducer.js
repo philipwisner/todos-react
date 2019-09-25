@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
 import { updateColorTheme } from '../actions';
-import appData from '../../data';
+const initialState = {
+  themeColor: '#921CE8',
+};
 
-function setColorTheme(state = appData.selectedColor, action) {
+function setColorTheme(state = initialState, action) {
   switch (action.type) {
     case updateColorTheme:
-      return state;
+      return { ...state, selectedColor: action.payload };
     default:
       return state;
   }
