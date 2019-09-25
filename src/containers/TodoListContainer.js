@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import { NewTodo, FilterBar, TodoList, BottomButton } from '../components';
 import '../styles/Containers.scss';
 import appData from '../data';
@@ -10,6 +11,7 @@ const TodoListContainer = () => {
   const [filteredTodos, setFilteredTodos] = useState([]);
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [checkAll, setCheckAll] = useState(true);
+  // const themeColor = store.getState();
 
   useEffect(() => handleFilterTodos(), [selectedFilter, todos]);
 
@@ -107,4 +109,10 @@ const TodoListContainer = () => {
   );
 };
 
-export default TodoListContainer;
+const mapStateToProps = store => {
+  return {
+    themeColor: store.settings.themeColor,
+  };
+};
+
+export default connect(mapStateToProps)(TodoListContainer);

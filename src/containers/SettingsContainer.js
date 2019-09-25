@@ -21,6 +21,7 @@ const SettingsContainer = () => {
 
   const handleSelectedColor = color => {
     setSelectedColor(color);
+    //this needs to dispatch an action
     //This needs to be known by app
     handleSetSaved();
   };
