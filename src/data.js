@@ -52,6 +52,6 @@ appData.colors = [
   { name: 'Black', value: '#2F3542' },
 ];
 
-appData.selectedColor = '#1E90FF';
+appData.selectedColor = '#921CE8';
 
 module.exports = appData;
