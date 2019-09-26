@@ -41,7 +41,7 @@ const initialState = {
 function visibilityFilter(state = initialState, action) {
   switch (action.type) {
     case setFilter:
-      return action.filter;
+      return { ...state, selectedFilter: action.payload };
     default:
       return state;
   }
@@ -53,13 +53,13 @@ function transformTodos(state = initialState, action) {
       return [
         ...state,
         {
-          text: action.text,
+          text: action.payload,
           completed: false,
         },
       ];
     case toggleTodo:
       return state.map((todo, index) => {
-        if (index === action.index) {
+        if (index === action.payload) {
           return Object.assign({}, todo, {
             completed: !todo.completed,
           });
