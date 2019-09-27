@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import '../styles/Containers.scss';
 import appData from '../data';
 import { ColorPicker, SetFilter } from '../components';
@@ -51,4 +52,10 @@ const SettingsContainer = () => {
   );
 };
 
-export default SettingsContainer;
+const mapStateToProps = store => {
+  return {
+    themeColor: store.settings.themeColor,
+  };
+};
+
+export default connect(mapStateToProps)(SettingsContainer);
