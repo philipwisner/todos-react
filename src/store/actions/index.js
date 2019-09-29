@@ -1,4 +1,5 @@
 export {
+  Types,
   FilterTypes,
   addTodo,
   toggleTodo,
