@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import { addTodo, toggleTodo, setFilter, FilterTypes } from '../actions';
-// import _ from 'lodash';
+import { Types } from '../actions';
 
 const initialState = {
-  visibilityFilter: 'SHOW_ALL',
-  transformTodos: [
+  todos: [
     {
       id: 1,
       text: 'Grocery Shopping',
@@ -38,26 +36,18 @@ const initialState = {
   ],
 };
 
-function visibilityFilter(state = initialState, action) {
+function transformTodos(state = initialState.todos, action) {
   switch (action.type) {
-    case setFilter:
-      return { ...state, selectedFilter: action.payload };
-    default:
-      return state;
-  }
-}
-
-function transformTodos(state = initialState, action) {
-  switch (action.type) {
-    case addTodo:
+    case Types.ADD_TODO:
       return [
         ...state,
         {
+          id: state.length + 1,
           text: action.payload,
           completed: false,
         },
       ];
-    case toggleTodo:
+    case Types.TOGGLE_TODO:
       return state.map((todo, index) => {
         if (index === action.payload) {
           return Object.assign({}, todo, {
@@ -72,7 +62,6 @@ function transformTodos(state = initialState, action) {
 }
 
 const todos = combineReducers({
-  visibilityFilter,
   transformTodos,
 });
 
