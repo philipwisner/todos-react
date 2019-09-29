@@ -1,20 +1,23 @@
 import { combineReducers } from 'redux';
-import { updateColorTheme } from '../actions';
+import { SettingsTypes } from '../actions';
 const initialState = {
   themeColor: '#921CE8',
+  defaultTab: 'all',
 };
 
-function setColorTheme(state = initialState, action) {
+function updateSettings(state = initialState, action) {
   switch (action.type) {
-    case updateColorTheme:
-      return { ...state, selectedColor: action.payload };
+    case SettingsTypes.SET_COLOR_THEME:
+      return { ...state, themeColor: action.payload };
+    case SettingsTypes.SET_DEFAULT_TAB:
+      return { ...state, defaultTab: action.payload };
     default:
       return state;
   }
 }
 
 const settings = combineReducers({
-  setColorTheme,
+  updateSettings,
 });
 
 export default settings;
