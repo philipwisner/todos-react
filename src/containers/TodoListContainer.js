@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { NewTodo, FilterBar, TodoList, BottomButton } from '../components';
+import { addTodo, toggleTodo } from '../store/actions';
 import '../styles/Containers.scss';
-import appData from '../data';
 
-const TodoListContainer = () => {
-  const themeColor = appData.selectedColor;
-  const [todos, setTodos] = useState(appData.todos);
+const TodoListContainer = props => {
+  const themeColor = props.themeColor;
+  const storeTodos = props.todos;
+  const dispatch = useDispatch();
+  const [todos, setTodos] = useState(storeTodos);
   const [newTodoValue, setNewTodoValue] = useState('');
   const [filteredTodos, setFilteredTodos] = useState([]);
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [checkAll, setCheckAll] = useState(true);
-  // const themeColor = store.getState();
 
   useEffect(() => handleFilterTodos(), [selectedFilter, todos]);
 
@@ -55,12 +56,14 @@ const TodoListContainer = () => {
   };
 
   const handleAddTodo = todo => {
+    dispatch(addTodo(todo));
     setTodos([...todos, todo]);
     setNewTodoValue('');
     clearInput();
   };
 
   const handleToggleTodo = selectedTodo => {
+    dispatch(toggleTodo(selectedTodo));
     setTodos(
       todos.map(todo => {
         todo.id === selectedTodo.id
@@ -111,7 +114,8 @@ const TodoListContainer = () => {
 
 const mapStateToProps = store => {
   return {
-    themeColor: store.settings.themeColor,
+    themeColor: store.settings.updateSettings.themeColor,
+    todos: store.todos.transformTodos,
   };
 };
 
