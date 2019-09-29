@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, { useState } from 'react';
+import { connect, useDispatch } from 'react-redux';
+import { ColorPicker, SetFilter } from '../components';
+import { updateColorTheme, updateDefaultTab } from '../store/actions';
 import '../styles/Containers.scss';
 import appData from '../data';
-import { ColorPicker, SetFilter } from '../components';
 
-const SettingsContainer = () => {
+const SettingsContainer = props => {
   const colors = appData.colors;
   const statuses = appData.statuses;
-  const [selectedColor, setSelectedColor] = useState(appData.selectedColor);
+  const dispatch = useDispatch();
+  const themeColor = props.themeColor;
+  const [selectedColor, setSelectedColor] = useState(themeColor);
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [saved, setSaved] = useState(false);
-
-  // useEffect(() => console.log('updated'), [selectedColor, selectedColor]);
 
   const handleSetSaved = () => {
     setSaved(true);
@@ -21,13 +22,13 @@ const SettingsContainer = () => {
   };
 
   const handleSelectedColor = color => {
+    dispatch(updateColorTheme(color));
     setSelectedColor(color);
-    //this needs to dispatch an action
-    //This needs to be known by app
     handleSetSaved();
   };
 
   const handleSelectedFilter = filter => {
+    dispatch(updateDefaultTab(filter));
     setSelectedFilter(filter);
     handleSetSaved();
   };
@@ -54,8 +55,7 @@ const SettingsContainer = () => {
 
 const mapStateToProps = store => {
   return {
-    themeColor: store.settings.themeColor,
+    themeColor: store.settings.updateSettings.themeColor,
   };
 };
-
 export default connect(mapStateToProps)(SettingsContainer);
