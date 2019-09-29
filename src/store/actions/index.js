@@ -7,4 +7,4 @@ export {
   deleteTodo,
   setFilter,
 } from './todos';
-export { updateColorTheme } from './settings';
+export { SettingsTypes, updateColorTheme, updateDefaultTab } from './settings';
